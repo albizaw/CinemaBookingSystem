@@ -1,0 +1,54 @@
+# Ignoruj pliki Visual Studio Code
+.vscode/
+.angular/
+
+# Ignoruj pliki Visual Studio
+*.suo
+*.user
+*.sln.docstates
+
+# Ignoruj pliki .NET Core
+bin/
+obj/
+
+# Ignoruj katalogi Node.js
+node_modules/
+
+# Ignoruj pliki Angular
+dist/
+
+# Ignoruj pliki NuGet
+*.nupkg
+
+# Ignoruj pliki tymczasowe
+*~
+
+# Ignoruj pliki tekstowe
+*.txt
+
+# Ignoruj pliki logów
+*.log
+
+# Ignoruj pliki baz danych
+*.db
+*.db-shm
+*.db-wal
+
+# Ignoruj pliki testów
+testresults/
+
+# Ignoruj pliki konfiguracyjne środowiska
+*.env
+
+# Ignoruj pliki zawierające poufne dane
+*.secret
+*.key
+*.pem
+*.pfx
+
+# Ignoruj katalogi związane z migracjami .NET Core
+Migrations/
+
+# Ignoruj katalogi tymczasowe
+temp/
+tmp/

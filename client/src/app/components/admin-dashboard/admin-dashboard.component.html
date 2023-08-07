@@ -1,0 +1,57 @@
+<mat-toolbar>
+  <div>CinemaApp</div>
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <p class="designation">Admin Panel</p>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" (click)="onLinkClick('users')">
+      <mat-icon>supervised_user_circle</mat-icon>
+      <span>All users</span>
+    </button>
+
+    <button mat-button class="menu-button" (click)="onLinkClick('orders')">
+      <mat-icon>list_alt</mat-icon>
+      <span>All orders</span>
+    </button>
+
+    <button mat-button class="menu-button" (click)="onLinkClick('addseance')">
+      <mat-icon>add</mat-icon>
+      <span>Add seance</span>
+    </button>
+
+    <button mat-button class="menu-button" (click)="onLinkClick('addmovie')">
+      <mat-icon>movie</mat-icon>
+      <span>Add movie</span>
+    </button>
+
+    <button mat-button class="menu-button" (click)="onLinkClick('settings')">
+      <mat-icon>settings</mat-icon>
+      <span>Settings</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

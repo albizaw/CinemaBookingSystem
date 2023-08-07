@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 mat-dialog-title>Order Summary</h2>
+  <div mat-dialog-content>
+    <p><strong>Movie Title:</strong> {{ data.movieTitle }}</p>
+    <p>
+      <strong>Seance Date:</strong>
+      {{ data.seanceDate | date : "yyyy-MM-dd HH:mm" }}
+    </p>
+    <p><strong>Selected Seats:</strong></p>
+    <ul>
+      <li *ngFor="let seatNumber of data.selectedSeats">{{ seatNumber }}</li>
+    </ul>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onConfirm()">
+      Confirm Order
+    </button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="grid-container">
+  <mat-grid-list [cols]="cols" rowHeight="2:1" class="mat-grid-list">
+    <mat-grid-tile
+      *ngFor="let movie of uniqueMovies"
+      [colspan]="1"
+      [rowspan]="3"
+      (click)="openDialog(movie)"
+    >
+      <img
+        src="data:image/jpeg;base64,{{ movie.poster }}"
+        alt="{{ movie.title }}"
+        class="poster-thumbnail"
+        matTooltipPosition="above"
+        matTooltip="{{ movie.title }} "
+      />
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

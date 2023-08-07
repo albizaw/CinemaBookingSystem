@@ -1,0 +1,95 @@
+<div class="container">
+  <mat-card class="form-container">
+    <mat-card-content>
+      <div class="header">
+        <p>Sign Up</p>
+      </div>
+
+      <form class="login-form" [formGroup]="signUpForm">
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input type="text" formControlName="firstName" matInput required />
+            <mat-error
+              *ngIf="
+                signUpForm.controls['firstName'].dirty &&
+                signUpForm.hasError('required', 'firstName')
+              "
+            >
+              First name is required!</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input type="text" formControlName="lastName" matInput required />
+            <mat-error
+              *ngIf="
+                signUpForm.controls['lastName'].dirty &&
+                signUpForm.hasError('required', 'lastName')
+              "
+            >
+              Last name is required!</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" formControlName="email" matInput required />
+            <mat-error
+              *ngIf="
+                signUpForm.controls['email'].dirty &&
+                signUpForm.hasError('required', 'email')
+              "
+            >
+              Email is required!</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <div class="form-inp">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                formControlName="password"
+                [type]="type"
+                matInput
+                required
+              />
+              <button mat-icon-button matSuffix (click)="hideShowPass()">
+                <mat-icon>{{ isText ? on : off }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="
+                  signUpForm.controls['password'].dirty &&
+                  signUpForm.hasError('required', 'password')
+                "
+                >Password is required!</mat-error
+              >
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="button-sub">
+          <button
+            (click)="onSignUp()"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+
+      <div class="new-account">
+        Already have an account? <a routerLink="/login">Login</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

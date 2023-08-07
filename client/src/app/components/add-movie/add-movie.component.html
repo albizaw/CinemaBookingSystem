@@ -1,0 +1,75 @@
+<div class="container">
+  <mat-card class="form-container">
+    <mat-card-content>
+      <div class="header">
+        <p>Movie</p>
+      </div>
+
+      <form class="login-form" [formGroup]="movieForm">
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input type="text" formControlName="title" matInput required />
+            <mat-error> Title is required</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <div class="form-inp">
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea
+                formControlName="description"
+                matInput
+                cdkTextareaAutosize
+                cdkAutosizeMaxRows="5"
+              ></textarea>
+              <mat-error> Description is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Duration time </mat-label>
+            <input type="text" formControlName="duration" matInput required />
+            <mat-error> You must enter a value</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <button type="button" mat-raised-button (click)="filePicker.click()">
+            Choose File
+          </button>
+
+          <input
+            hidden
+            formControlName="poster"
+            type="file"
+            #filePicker
+            (change)="onImagePicked($event)"
+          />
+
+          <span class="selectedFile" *ngIf="movieForm.get('poster')?.value"
+            >File is selected!</span
+          >
+        </div>
+
+        <div class="button-sub">
+          <button
+            (click)="onSubmit()"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Add movie
+          </button>
+
+          <button (click)="reset()" mat-raised-button color="primary">
+            Reset
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

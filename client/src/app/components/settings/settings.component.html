@@ -1,0 +1,49 @@
+<div class="container">
+  <mat-card class="form-container">
+    <mat-card-content>
+      <div class="header">
+        <p>Your Profile</p>
+      </div>
+
+      <form class="login-form" [formGroup]="userForm">
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Firstname</mat-label>
+            <input type="text" formControlName="firstName" matInput required />
+            <mat-error> You must enter a value</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <mat-form-field appearance="outline">
+            <mat-label>Lastname</mat-label>
+            <input type="text" formControlName="lastName" matInput required />
+            <mat-error> You must enter a value</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-input">
+          <div class="form-inp">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input formControlName="password" matInput required />
+              <button mat-icon-button matSuffix></button>
+              <mat-error>Password is required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="button-sub">
+          <button
+            (click)="onSubmit()"
+            type="submit"
+            mat-raised-button
+            color="primary"
+          >
+            Accept
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

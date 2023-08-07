@@ -1,0 +1,58 @@
+<div class="dialog-content">
+  <div class="left-section">
+    <img class="thumbnail" [src]="getBase64ImageSrc()" alt="Movie Thumbnail" />
+    <div class="details">
+      <h3>{{ data.title }}</h3>
+      <p>{{ data.duration }} min</p>
+    </div>
+    <p class="movie-description">{{ data.description }}</p>
+    <mat-form-field>
+      <mat-label>Select date</mat-label>
+      <mat-select
+        [(value)]="selectedSeance"
+        (selectionChange)="updateSeatMap()"
+      >
+        <mat-option
+          *ngFor="let seance of data.seances"
+          [value]="seance.dateStart"
+        >
+          {{ seance.dateStart | date : "yyyy-MM-dd HH:mm" }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="right-section">
+    <ng-container *ngIf="selectedSeance">
+      <div *ngFor="let row of seatRows" class="seat-row">
+        <div
+          *ngFor="let seat of row"
+          class="seat"
+          [ngClass]="{
+            free: seat.isFree,
+            selected: seat.isSelected,
+            'not-free': !seat.isFree
+          }"
+          (click)="onSeatClick(seat)"
+        >
+          {{ seat.seatNumber }}
+        </div>
+      </div>
+
+      <div class="buttons-action">
+        <button mat-raised-button color="success" (click)="openSummaryDialog()">
+          <mat-icon>arrow_forward_ios</mat-icon>
+          Next
+        </button>
+        <button mat-button (click)="closeDialog()">
+          <mat-icon>arrow_back_ios</mat-icon>
+          Close
+        </button>
+        <button mat-raised-button color="warn" (click)="resetSelection()">
+          <mat-icon>clear</mat-icon>
+          Reset
+        </button>
+      </div>
+    </ng-container>
+  </div>
+</div>
